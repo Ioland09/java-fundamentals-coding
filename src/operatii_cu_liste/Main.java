@@ -1,10 +1,13 @@
 package operatii_cu_liste;
 
+import java.util.Scanner;
+
 /**
  * 1. sa se defineasca un array de 10 elemente, sa se afiseze acel array in consola
  * 2. sa se afiseze array-ul invers de la sfarsit spre inceput
  * 3. sa se afiseze toate numerele pare din array
  * 4. sa se calculeze suma numrelor divizibile cu 3 din array-ul dat
+ * 5. sa se verifice daca numarul 9
  */
 public class Main {
     public static void main(String[] args) {
@@ -24,6 +27,14 @@ public class Main {
         System.out.println("------------------------------------");
 
         afisareSumaNumereDivizibileCu3(numbers);
+
+        cautareNumarInArray(numbers);
+
+        citireNumarSiCautareInArray(numbers);
+
+        citireArrayDeLaTastatura();
+
+        Scanner scanner = new Scanner(System.in);
 
     }
 
@@ -52,7 +63,7 @@ public class Main {
     public static void afisareNumerePare (int [] numbers) {
         for (int i = 0; i < numbers.length; i++) {
             int element = numbers [i];
-            if (element 5 2 == 0) {
+            if (element % 2 == 0) {
                 System.out.println(element + " ");
             }
         }
@@ -70,4 +81,58 @@ public class Main {
         System.out.println(sum);
     }
 
+    public static void cautareNumarInArray(int[] numbers){
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] == 9) {
+                System.out.println("S-a gasit nr 9");
+            }
+        }
+    }
+
+    public static void citireNumarSiCautareInArray (int [] numbers ) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Introduceti numarul: ");
+        int n = scanner.nextInt();
+        //  boolean isPresent = false;
+        int contor = 0;
+
+
+        for (int i = 0; i < numbers.length; i++) {
+            int element = numbers[i];
+            if (element == n) {
+                //      isPresent = true;
+
+                //      System.out.println(n + " - Numarul este prezent in array");
+                contor++;
+            }
+        }
+//        if (isPresent == false) {
+//            System.out.println(n + " - Numarul nu este prezent in array.");
+//        }
+        if (contor > 0) {
+            System.out.println(n + " - Numarul este prezent in array");
+        } else {
+            System.out.println(n + " - Numarul nu este prezent in array.");
+        }
+        scanner.close();
+    }
+
+    public static void citireArrayDeLaTastatura() {
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Introdu lungimea array-ului");
+        int n = scanner.nextInt();
+
+        int[] numbers = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            //pentru a adauga un element pe pozitia i in array
+            System.out.println("Introdu un numar");
+            numbers[i] = scanner.nextInt();
+        }
+        scanner.close();
+        afisareArray(numbers);
+    }
 }
