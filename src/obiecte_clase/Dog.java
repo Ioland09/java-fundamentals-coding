@@ -3,7 +3,7 @@ package obiecte_clase;
 public class Dog {
     // proprietati:
     String rasa;
-    int varsta;
+    int age;
     String name;
 
     // constructori:
@@ -15,11 +15,11 @@ public class Dog {
 
     }
 
-    public Dog(String rasa, int varsta, String name) {
+    public Dog(String rasa, int age, String name) {
         // constructor cu parametrii
 
         this.rasa = rasa;
-        this.varsta = varsta;
+        this.age = age;
         this.name = name;
 
     }
@@ -28,13 +28,13 @@ public class Dog {
     public String toString() {
         // metoda toString() transforma obiectul nostru intr-un text
         // atunci cand dorim sa afisam un obiect folosind System.out.println metoda toString se apeleaza automat
-        return "Rasa: " + this.rasa + ", Varsta: " + this.varsta + ", Nume: " + this.name;
+        return "Rasa: " + this.rasa + ", Varsta: " + this.age + ", Nume: " + this.name;
     }
 
     public boolean equals(Object o) {
         Dog obj = (Dog) o; // am facut cast de la object la Dog
 
-        if (this.name.equals(obj.name) && this.rasa.equals(obj.rasa) && this.varsta == obj.varsta) {
+        if (this.name.equals(obj.name) && this.rasa.equals(obj.rasa) && this.age == obj.age) {
             return true;
         } else {
             return false;
